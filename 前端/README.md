@@ -4,5 +4,5 @@
 
 - [requireJS入门]()
 
-- [REQUIREJS优化器之r.js](./RequireJS/REQUIREJS OPTIMIZER.md)
+- [REQUIREJS优化器之r.js](./RequireJS/REQUIREJS-OPTIMIZER.md)
 
