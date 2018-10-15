@@ -3,7 +3,7 @@ RequireJS优化工具主要做两件事：
 - 合并相关联的js脚本，并使用UglifyJS（默认）或者Closure Compiler来缩小代码体积
 - 通过将``@import``注解引用的css文件插入到一行中和删除注释来优化CSS
 
-###注意事项：
+### 注意事项：
 
 > 优化器只会合并传递给顶级require和define调用的字符串数组中指定的模块，或者在简化的CommonJS上下文中（比如define函数中）通过require('name')调用的模块。所以，它无法找到通过变量名加载的模块：
 >
@@ -68,6 +68,7 @@ RequireJS优化工具主要做两件事：
       out: "main-built.js"
   })
   ```
+  运行``node r.js -o build.js``即可运行打包构建
 
   ```html
   // index.html
@@ -139,5 +140,5 @@ RequireJS优化工具主要做两件事：
 
 
 
-###[打包整个项目（js+css）示例](./rjsDemo)
+### [打包整个项目（js+css）示例](./rjsDemo)
 

@@ -1,4 +1,4 @@
-####AMD规范
+#### AMD规范
 
 ```
 define(id?, dependencies?, factory);

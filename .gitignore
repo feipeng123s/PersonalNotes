@@ -1,0 +1,5 @@
+*/node_modules/*
+
+/dist/
+
+/前端/RequireJS/gulp-require-demo/node_modules
