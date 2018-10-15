@@ -1,0 +1,1 @@
+define("one",[],function(){return 1}),define("two",[],function(){return 2}),define("three",["require","two"],function(e){return e("two")+1}),require.config({baseUrl:".",paths:{jquery:"lib/jquery-3.3.1.min"},map:{"*":{css:"lib/css.min"}}}),require(["one","three"],function(e,n){console.log(e+n)}),define("main",function(){});

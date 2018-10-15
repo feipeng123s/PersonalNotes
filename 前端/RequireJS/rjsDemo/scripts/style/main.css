@@ -1,0 +1,9 @@
+@import url('common.css');
+
+.clearfix{
+    overflow: hidden;
+}
+
+body{
+    background: red;
+}
