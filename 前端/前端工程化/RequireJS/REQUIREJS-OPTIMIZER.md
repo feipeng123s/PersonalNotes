@@ -23,6 +23,10 @@ RequireJS优化工具主要做两件事：
 
 以上参考[REQUIREJS OPTIMIZER](https://requirejs.org/docs/optimization.html)
 
+#### 无法通过变量名加载模块的原因
+
+> 在AMD 模块中使用模块内的require 方法声明依赖的时候，传入的moduleId 必须是字符串常量，而不可以是含变量的表达式。原因在于模块打包工具在打包前需要通过静态分析获取整个应用的依赖关系，如果传入require 方法的moduleId 是个含变量的表达式，其值需要在执行期才能确定，那么静态分析就无法确认依赖的到底是哪个模块，自然也就没办法把这个模块的代码事先打包进来。
+
 ### 举例说明
 
 刚开始用r.js时，直接在已有的requirejs项目中配置使用，由于各种原因综合起来出现问题无法解决 ；后面看到司徒正美的教程（[r.js打包——司徒正美](https://www.cnblogs.com/rubylouvre/p/4262569.html)），重新开始一个简单的项目，由简入繁，理解起来就容易了许多。

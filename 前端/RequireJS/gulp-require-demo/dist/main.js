@@ -1,1 +1,0 @@
-define("scripts/one",[],function(){return 1}),define("scripts/two",[],function(){return 2}),define("scripts/three",["require","./two"],function(e){return e("./two")+1}),require(["./scripts/one","./scripts/three"],function(e,n){console.log(e+n)}),define("main",function(){});

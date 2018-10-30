@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>shadow DOM demo</title>
+</head>
+<body>
+
+    <!-- custom elements -->
+    <h1>Simple custom elements</h1>
+    <div>
+        hahahahaha, 你好你好
+        <p is="word-count"></p>
+    </div>
+
+    <!-- shadow dom -->
+    <h1>Simple Shadow DOM</h1>
+    <div style="margin-top: 100px;">
+        <popup-info img="alt.jpg" text="Your card validation code (CVC) is an extra 
+                                    security feature — it is the last 3 or 4
+                                    numbers on the back of your card.">
+        </popup-info>
+    </div>
+
+    <!-- html template -->
+    <h1>Simple Template</h1>
+    <template id="my-paragraph">
+        <p>My paragraph<br>
+            <slot name="my-text">My default text</slot>
+        </p>
+    </template>
+    <my-paragraph>
+        <span slot="my-text">Let's have some different text!</span>
+    </my-paragraph>
+
+<script src="main.js"></script>
+</body>
+</html>
