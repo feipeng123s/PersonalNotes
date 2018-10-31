@@ -1,0 +1,287 @@
+﻿1.尺寸和边框
+  1.单位
+    1.尺寸单位
+      px:像素 1024*768 
+      pt:磅（字体大小）1/72in
+      in:英寸 1in=2.54cm
+      cm:厘米
+      mm:毫米
+      em:相对单位-倍数（2em）
+      rem:根相对单位-倍数
+      %：相对单位（一般相对于父元素）
+   2.颜色单位（取值）
+      1.英文单词
+        blue,red,yellow,black,pink...
+      2.rgb(r,g,b)
+        r,g,b:0-255
+        r:red
+	g:green
+	b:blue
+      3.rgba(r,g,b,alpha)
+        alpha:透明度，取值为0-1，值越大越趋近于原本的颜色
+      4.rgb(r%,g%,b%)
+      5.#rrggbb
+        0-9或a-f
+	#ffffff:白色
+	#000000:黑色
+	#dddddd:灰色
+      6.#rgb 是上面的缩写
+        #fff:白色
+	#000:黑色
+	#ddd:灰色
+  2.尺寸
+    1.作用：改变元素的宽度和高度
+    2.语法
+      宽度：width
+      最小宽度：min-width
+      最大宽度：max-width
+      高度：height
+      最小高度：min-height
+      最大高度：max-height
+    3.页面中允许设置尺寸的元素
+      1.所有块级元素允许设置尺寸
+        div,p,h1~h6,ul,ol,dl,结构标记
+      2.所有行内块元素允许设置尺寸
+        表单元素（单选按钮，复选框）
+      3.本身具备width和height属性的
+         img和table
+      注意：大部分的行内元素无法修改尺寸（span,a,i,u,b,s...）
+    4.溢出处理
+      当内容多，元素区域小的时候，就会产生溢出的效果，默认都是纵向溢出。
+      属性：overflow,overflow-x,overflow-y
+      取值：
+          1.visible 可见的，默认值，溢出可见
+	  2.hidden 隐藏，溢出的内容全部隐藏，不可见
+	  3.scroll 显示滚动条，溢出时，可用
+	  4.auto 自动，溢出时才显示滚动条并可用
+       练习：
+         完成图片溢出处理
+	 border:1px solid black;
+  3.边框
+    1.简写方式
+      border:width style color;
+      width：边框的宽度（粗细）
+      style：边框样式
+       取值：
+           solid 实线条
+	   dotted 虚线（点）
+	   dashed 虚线（线）
+      color:边框的颜色 transparent(透明色)
+      以上设置的是4条边框
+    2.单边定义
+      只设置某一条边框的三个属性
+      属性：
+      border-top/bottom/right/left:width style color;
+      练习：
+        新建一个div元素，设置其尺寸为200*200，并且先设置4个方向的边框为1px,实线，orange样式；再设置上边框为2px blue dotted样式。将四个方向的样式全部修改为虚线（dashed）。
+    3.单属性定义
+      设置四条边框的某一个属性
+      属性：
+      border-width/style/color:值;
+      ex：
+        border-style:solid;
+    4.单边单属性定义
+      只设置某一个方向的某一个属性值
+      属性：
+        border-方向-属性：值;
+	    方向：top/bottom/left/right
+	    属性：width/style/color
+
+      练习：将上面div的下边框颜色改为紫色
+  4.边框倒角
+    将直角倒成圆角。
+    属性：border-radius
+    取值：以px为单位的数值 或者 百分比（设置圆形时）
+  5.边框阴影
+    属性：
+      box-shadow:h-shadow v-shadow blur spread color inset;
+      h-shadow:阴影在水平方向的偏移距离，必须值
+          取值为正，向右偏移；
+	  取值为负，向左偏移；
+      v-shadow:阴影在垂直方向的偏移距离，必须值
+          取值为正，向下偏移
+	  取值为负，向上偏移
+      blur:阴影的模糊距离,可选值
+      spread:阴影的尺寸,可选值(指定要在基础阴影上扩充出来的大小距离)
+      color:阴影颜色，可选值
+      inset:将默认的外阴影改为内阴影的效果
+      练习：
+         设置一个圆形的发光效果
+  6.轮廓
+    轮廓指的是边框的边框，绘制于边框外围的条线。
+    属性：outline:width style color;
+    取消轮廓：outline:none/outline:0;
+    取消边框：border:none/border:0;
+
+    练习：新建input输入框，尝试取消轮廓效果。
+2.框模型
+  1.什么是框模型
+    
+    框模型：box model,定义了元素框处理元素的内容，内边距，外边距以及边框的一种计算方式。
+    内边距：元素边框与内容之间的空白间距
+    外边距：元素边框与元素边框之间的空白间距
+    当框模型接入到元素中时，元素的实际尺寸会发生改变
+    框模型的计算模式：
+        元素的实际占地宽度=左右外边距+左右边框+左右内边距+width
+	元素的实际占地高度=上下外边距+上下边框+上下内边距+height
+  2.外边距
+    1.什么是外边距？
+      围绕在元素边框外的空白距离
+      元素与元素之间的空白间距
+    2.语法
+      margin:定义某个元素四个方向的外边距
+      margin-top/bottom/left/right 单边定义
+      取值：
+         1.以px为单位的数字
+	 2.取值为负数 向相反的方向移动
+	   margin-left:
+	   取值为正，让元素右移动
+	   取值为负，让元素左移动
+	   margin-top:
+	   取值为正，让元素下移动
+	   取值为负，让元素上移动
+	 3.取值为% 
+	   外边距的值，父元素宽或高的占比
+	 4.取值为auto
+	   自动计算外边距的值
+	   注意：auto只对块级的左右外边距有效，让元素在水平方向自动居中对齐
+	   练习：
+	   网页中新建两个div元素，第一个div距离左边的边距为40px,第二个div在网页中水平居中显示。
+    3.简洁写法
+      1.margin:value;四个方向的外边距
+      2.margin:v1 v2;
+        v1:上下外边距
+	v2:左右外边距
+      3.margin:v1 v2 v3;
+        v1:上
+	v2:左右
+	v3:下
+      4.margin:v1 v2 v3 v4; 
+              上 右 下 左（顺时针）
+    4.自带外边距的元素
+      h1~h6,p,ul,ol,dl,pre,body
+      通过CSS Reset(CSS重写)的手段，来重置具备外边距的元素
+      body,h1,h2,h3,h4,h5,h6,p,pre,ul,ol,dl{
+         margin:0;
+      }
+    5.外边距的特殊效果
+      1.外边距合并
+        当两个垂直外边距相遇时，他们将合并成一个，最终的距离取决于两个外边距中较大的那个。
+	练习：
+         1.创建两个div元素，id分别为d1和d2,分别设置不同的背景颜色，尺寸200*200；
+	 2.在d2中，再添加一个子元素div，id为d3,设置其尺寸为100*100；
+	 3.设置d3的上外边距为50px,观察结果。
+      2.外边距溢出
+        在某些特殊条件下，为子元素设置上外边距时，有可能会作用到父元素上。
+	1.父元素没有上边框
+	2.为第一个子元素设置上外边距时
+
+	解决方案：
+	  1.为父元素增加上边框
+	    弊端：对父元素的高度有影响
+	  2.使用父元素的上内边距来取代子元素的上外边距
+	    弊端：对父元素的高度有影响
+	  3.在父元素的第一个子元素位置处，增加一个空<table>  
+      3.行内元素以及行内块元素的垂直外边距
+        1.行内元素垂直外边距无效（img）
+	  ex：span{margin-top:50px;} //无效
+	2.行内块元素，设置垂直外边距，整行元素都跟这发生改变
+  3.内边距
+    1.什么是内边距？
+      元素框与元素内容之间的距离就是内边距
+      内边距会扩大元素边框占地区域
+    2.语法
+      属性：
+      padding:value; 四个方向的内边距
+      padding-top/bottom/left/right 单边定义
+      取值：
+        1.以px为单位的数字
+	2.以%为单位的数值
+    3.简洁写法
+      padding:value; 四个方向内边距
+      padding:v1 v2; 
+          v1上下内边距
+	  v2左右内边距
+      padding:v1 v2 v3;
+             上 左右 下
+      padding:v1 v2 v3 v4;
+              上 右 下 左
+    4.属性：box-sizing
+      作用：指定框模型的计算模式
+      取值：
+         1.content-box
+	   默认值，采用默认的计算方式计算元素的占地尺寸
+	   实际宽度=左右边框+左右外边距+左右内边距+w
+	   实际高度=上下边框+上下外边距+上下内边距+h
+	 2.border-box
+	   元素的尺寸，会包含border以及padding值
+	   实际宽度=width(包含border,padding,width)+margin
+	   实际高度=height(包含border,padding,height)+margin
+3.背景
+  1.背景
+    以单一颜色或图片填充元素
+  2.背景色
+    属性：background-color
+    取值：合法的颜色值 transparent(透明色)
+    注意：背景颜色和背景图像默认都从边框位置处开始填充
+  3.背景图
+    属性：background-image
+    取值：url(图片的路径);
+    ex:
+      background-image:url(a.jpg);
+  4.背景图像的平铺
+    属性：background-repeat
+    取值：
+        1.repeat 默认值，横向和纵向都平铺
+	2.no-repeat 无平铺效果，图片只显示一次
+	3.repeat-x 只在水平方向平铺
+	4.repeat-y 只在垂直方向平铺
+  5.背景图像尺寸
+    属性：background-size
+    取值：
+       1.width height
+       2.width% height%
+       3.cover
+         将背景图等比放大，直到背景图完全覆盖到元素的所有区域为止。
+       4.contain
+         将背景图等比放大，直到背景图碰到元素的某一个边缘为止。
+  6.背景图像的固定
+    作用：将背景图固定在网页的某个位置处，一直在可视区域中，不会滚动条而发生位置的变化
+    属性：background-attachment
+    取值：
+       1.scroll 默认值，滚动
+       2.fixed 固定
+  7.背景图像的定位
+    作用：改变背景图在元素中的位置
+    属性：background-position
+    取值：
+       1.x y
+         x：背景图水平位置的偏移距离
+	    取值为正，向右偏移
+	    取值为负，向左偏移
+	 y:背景图垂直位置的偏移距离
+	    取值为正，向下偏移
+	    取值为负，向上偏移
+      2.x% y%
+        0% 0%:左上角
+	50% 50%：正中间
+	100% 100%：右下角
+      3.关键字
+        x:left/center/right
+	y:top/center/bottom
+  8.背景属性简写
+    在一个属性中指定多个属性值
+    属性：background
+    取值：color url() repeat attachment postion;
+    ex：
+       background:url(a.jpg);
+       注意：如果不设置其中某个属性值，该位置将采用默认值。
+
+   课后作业：
+       完成Day02文件夹中作业文件夹里的“作业.png”布局效果。
+
+       图片在图片素材文件包里
+
+
+
+

@@ -1,0 +1,74 @@
+.banner-container{
+    width: 1000px;
+    height: 400px;
+    /*为子元素的绝对定位*/
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.banner-container .banner-button-prev{
+    position:absolute;
+    top: 40%;
+    width:35px;
+    height: 70px;
+    cursor: pointer;
+    left: 10px;
+    z-index: 2;
+    background: #ddd url(img/arrow-left.png) no-repeat center center;
+}
+.banner-container .banner-button-prev:hover{
+    background: rgba(0,0,0,0.2) url(img/arrow-left.png) no-repeat center center;
+}
+
+.banner-container .banner-wrapper{
+    height: 100%;
+}
+
+.banner-container .banner-wrapper .banner-slide{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.banner-container .banner-button-next{
+    position:absolute;
+    top: 40%;
+    width:35px;
+    height: 70px;
+    cursor: pointer;
+    right: 10px;
+    z-index: 2;
+    background: #ddd url(img/arrow-right.png) no-repeat center center;
+}
+.banner-container .banner-button-next:hover{
+    background: rgba(0,0,0,0.2) url(img/arrow-right.png) no-repeat center center;
+}
+
+.banner-container .banner-pagination{
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+
+}
+.banner-container .banner-pagination span{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 2;
+    margin: 0 4px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.active{
+    background:#0aa1ed;
+}
+
+.banner-container .banner-scrollbar{
+
+}

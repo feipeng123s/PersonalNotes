@@ -1,0 +1,70 @@
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.banner-container{
+	width: 960px;
+	height: 400px;
+	margin: 0 auto;
+	overflow: hidden;
+	/*为子元素的绝对定位*/
+	position: relative;
+}
+
+.banner-container .banner-wrapper{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.banner-wrapper li{
+	float: left;
+}
+/* .banner-wrapper img{
+	width: 960px;
+} */
+
+.banner-container .banner-btn-prev{
+	background: #ddd url(img/arrow-left.png) no-repeat center center;
+	left: 5px;
+}
+
+.banner-container .banner-btn-next{
+	background: #ddd url(img/arrow-right.png) no-repeat center center;
+	right: 5px;
+}
+
+.banner-container .banner-btn-side{
+	position: absolute;
+	top: 150px;
+	width: 35px;
+	height: 70px;
+}
+.banner-container .banner-btn-prev:hover{
+	background: rgba(0,0,0,0.2) url(img/arrow-left.png) no-repeat center center;
+}
+.banner-container .banner-btn-next:hover{
+	background: rgba(0,0,0,0.2) url(img/arrow-right.png) no-repeat center center;
+}
+
+.banner-container .banner-pagination{
+  position: absolute;
+  left: 445px;
+  bottom: 30px;
+}
+
+.banner-container .banner-pagination li{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  float: left;
+  margin-right: 8px;
+}
+
+.banner-container .banner-pagination .active{
+  background:#0aa1ed;
+}
