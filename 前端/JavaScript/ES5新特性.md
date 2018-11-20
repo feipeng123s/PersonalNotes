@@ -74,9 +74,8 @@
   - 用.添加的新属性，特性的默认值为true
   - 用defineProperty/defineProperties添加的新属性，特性默认值为false
 
-  
 
-#####访问器属性
+##### 访问器属性
 
 > 不存储数据，专门提供对其他数据/变量的保护
 
@@ -95,7 +94,7 @@
   Object.setPrototypeOf(obj, prototype);
   ```
 
-####防扩展
+#### 防扩展
 
 > 禁止添加新属性
 
@@ -105,7 +104,7 @@ Object.isExtensible(obj);
 Object.preventExtensions(obj); //设置extensible为false
   ```
 
-####密封
+#### 密封
 
 > 防扩展的同时禁止删除现有属性（configurable:false）
 
@@ -154,7 +153,7 @@ console.log(new Food('cheese', 5).name);
 
 
 
-###Function.prototype.bind()
+### Function.prototype.bind()
 
 > **`bind()`**方法创建一个新的函数, 当被调用时，将其`this`关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。 
 
@@ -219,8 +218,6 @@ console.log(boundGetX());
       console.log(currentValue);
   });
   ```
-
-  
 
 - **Array.prototype.map()**
 

@@ -6,7 +6,7 @@
 
 [MDN文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%E8%A7%A3%E6%9E%84%E5%AF%B9%E8%B1%A1)
 
-###解构数组
+### 解构数组
 
 - 默认值：为了防止从数组中取出一个值为`undefined`的对象，可以为这个对象设置默认值 
 
@@ -23,7 +23,6 @@
   [a, b] = [b, a];
   ```
 
-  
 
 ### 解构对象
 
@@ -36,6 +35,8 @@
   ```
 
 - 默认值
+
+  > 生效的条件是，对象的属性值严格等于`undefined`
 
 
 
