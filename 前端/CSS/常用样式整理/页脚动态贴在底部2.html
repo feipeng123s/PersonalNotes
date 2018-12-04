@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页脚动态贴在底部</title>
+</head>
+<body>
+    <div class="page-wrap">
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+        wrap<br>
+    </div>
+    <div class="footer">footer</div>
+    <style>
+        html,body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: table;
+            width: 100%;
+        }
+        .page-wrap{
+            height: 100%;
+            font-size: 40px;
+        }
+        .footer{
+            display: table-row;
+            height: 400px;
+            background: green;
+        }
+    </style>
+</body>
+</html>

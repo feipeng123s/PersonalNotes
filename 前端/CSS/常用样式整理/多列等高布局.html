@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>多列等高布局</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    <h3>1. 设置很大的margin、padding</h3>
     <div class="container">
         <div class="col col1">
             <div class="row">hahaha</div>
@@ -16,6 +17,33 @@
             <div class="row">hahaha</div>
         </div>
     </div>
+
+    <h3>2. table布局方式</h3>
+    <div class="wrap">
+        <div class="left">
+            1<br>
+            2<br>
+            3<br>
+            4<br>
+        </div>
+        <div class="right">
+            1
+        </div>
+    </div>
+
+    <h3>3. flex布局</h3>
+    <div class="wrap1">
+        <div class="left1">
+            1<br>
+            2<br>
+            3<br>
+            4<br>
+        </div>
+        <div class="right1">
+            1
+        </div>
+    </div>
+
     <style>
     .container{
         overflow: hidden;
@@ -36,6 +64,45 @@
         color: #fff;
         height: 32px;
         border-bottom: 1px solid #fff;
+    }
+
+    /* table */
+    .wrap{
+        display: table;
+        width: 500px;
+    }
+    .left,
+    .right {
+        width: 50%;
+        padding: 10px;
+        display: table-cell;
+    }
+    .left {
+        background-color: #83e8f1;
+    }
+
+    .right {
+        background-color: #fbf64b;
+    }
+
+    /* flex */
+    .wrap1{
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+    }
+    .left1,
+    .right1 {
+        flex: 1 1 50%;
+        padding: 10px;
+    }
+
+    .left1 {
+        background-color: #83e8f1;
+    }
+
+    .right1 {
+        background-color: #fbf64b;
     }
     </style>
 </body>

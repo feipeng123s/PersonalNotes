@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>中间自适应解决方案</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <!-- 1.前面的双飞翼布局和圣杯布局也囊括在内 -->
+    
+    <!-- 2.使用绝对定位实现，给top、bottom、left、right设置响应的值即可 -->
+
+    <h3>3. flex布局</h3>
+    <div class="container">
+        <div class="header">上</div>
+        <div class="middle">中</div>
+        <div class="footer">下</div>
+    </div>
+
+    <h3>4. table布局</h3>
+    <div class="container0">
+        <div class="left">左</div>
+        <div class="center">中</div>
+        <div class="right">右</div>
+    </div>
+    <br>
+    <div class="container1">
+        <div class="header1">上</div>
+        <div class="middle1">中</div>
+        <div class="footer1">下</div>
+    </div>
+
+    <h3>5. grid布局</h3>
+    <div class="container2">
+        <div class="header2">上</div>
+        <div class="middle2">中</div>
+        <div class="footer2">下</div>
+    </div>
+
+    <h3>5. 使用calc()函数</h3>
+    <div class="container4">
+        <div class="header4">上</div>
+        <div class="middle4">中</div>
+        <div class="footer4">下</div>
+    </div>
+    
+    <style>
+        /* flex */
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            height: 300px;
+        }
+        .header{
+            flex: 0 0 50px;
+            background: red;
+        }
+        .middle{
+            flex: 1;
+            background: yellow;
+        }
+        .footer{
+            flex: 0 0 50px;
+            background: blue;
+        }
+    
+        /* table */
+        .container0{
+            display: table;
+            width: 300px;
+            height: 200px;
+        }
+        .container0>div{
+            display: table-cell;
+        }
+        .left{
+            width: 50px;
+            background-color: red;
+        }
+        .center{
+            background-color: yellow;
+        }
+        .right{
+            width: 50px;
+            background-color: blue;
+        }
+        .container1{
+            display: table;
+            width: 200px;
+            height: 300px;
+        }
+        .container1>div{
+            display: table-row;
+        }
+        .header1 {
+            background-color: red;
+            height: 50px;
+        }
+
+        .footer1 {
+            background-color: blue;
+            height: 50px;
+        }
+        .middle1 {
+            background-color: yellow;
+        }
+
+        /* grid */
+        .container2{
+            display: grid;
+            width: 200px;
+            height: 300px;
+            grid-template-rows:50px auto 50px;
+            grid-template-columns:100%;
+        }
+        .header2{
+            background: red;
+        }
+        .middle2{
+            background-color: yellow;
+        }
+        .footer2{
+            background-color: blue;
+        }
+
+        /* calc()函数 */
+        .container4{
+            width: 200px;
+            height: 300px;
+        }
+        .header4 {
+            background-color: red;
+            height: 50px;
+        }
+        .middle4{
+            background-color: yellow;
+            height: calc(100% - 100px);
+        }
+        .footer4 {
+            background-color: blue;
+            height: 50px;
+        }
+    </style>
+</body>
+</html>
