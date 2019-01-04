@@ -250,6 +250,9 @@ console.log(boundGetX());
       return accumulator + currentValue;
   });
   console.log(result5); // 45
+  // 若未给accumulator设置初始值，默认取数组的第一项作为初始值，但在数组为空时会报错。
+  // 设置初始值：arr.reduce(callback[, initialValue])。
+  // 未设置初始值，从index=1开始遍历；设置了初始值，从index=0开始遍历。
   ```
 
   [参考链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
