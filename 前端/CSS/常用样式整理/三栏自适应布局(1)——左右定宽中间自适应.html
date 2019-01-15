@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>中间自适应解决方案</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {margin: 0;min-width: 570px;}
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #main{
+            background-color: #ccc;
+        }
+        #left{
+            background-color: #0000FF;
+        }
+        #right{
+            background-color: #FF0000;
+        }
+        #left,#right{
+            width: 190px;
+        }
+        #left,#right,#main{
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h3>1.圣杯布局</h3>
+    <p>利用padding、float和margin负值实现</p>
+    <div id="shengbei" class="clearfix">
+        <div id="main" class="col">
+        #main
+        </div>
+        <div id="left" class="col">
+        #left
+        </div>
+        <div id="right" class="col">
+        #right
+        </div>
+    </div>
+    <style>
+        #shengbei {padding: 0 190px 0 190px;}
+        #shengbei .col {position: relative;float: left;}
+
+        #shengbei #main {width: 100%;}
+
+        #shengbei #left {margin-left: -100%;left: -190px;}
+
+        #shengbei #right {margin-left: -190px;right: -190px;}
+    </style>
+
+    <h3>2.双飞翼布局</h3>
+    <p>利用margin、float和margin负值实现</p>
+    <div id="shuangfeiyi" class="clearfix">
+        <div id="main" class="col">
+            <div id="main-wrap">
+                #main
+            </div>
+        </div>
+        <div id="left" class="col">
+        #left
+        </div>
+        <div id="right" class="col">
+        #right
+        </div>
+    </div>
+    <style>
+        #shuangfeiyi .col {float: left;}
+
+        #shuangfeiyi #main {width: 100%;}
+
+        #shuangfeiyi #main-wrap {margin: 0 190px 0 190px;}
+
+        #shuangfeiyi #left {margin-left: -100%;}
+
+        #shuangfeiyi #right {margin-left: -190px;}
+    </style>
+
+    <h3>3. flex布局</h3>
+    <div class="flex-container">
+        <div id="left">#left</div>
+        <div id="main">#main</div>
+        <div id="right">#right</div>
+    </div>
+    <style>
+        .flex-container{
+            display: flex;
+        }
+        .flex-container #main{
+            flex: 1;
+        }
+        .flex-container #top,.flex-container #bottom{
+            flex: 0 0 100px;
+        }
+    </style>
+
+    <h3>4. table布局</h3>
+    <div class="table-container">
+        <div id="left">#left</div>
+        <div id="main">#main</div>
+        <div id="right">#right</div>
+    </div>
+    <style>
+        .table-container{
+            display: table;
+            width: 100%;
+        }
+        .table-container>div{
+            display: table-cell;
+        }
+    </style>
+
+    <h3>5. grid布局</h3>
+    <div class="grid-container">
+        <div id="left">#left</div>
+        <div id="main">#main</div>
+        <div id="right">#right</div>
+    </div>
+    <style>
+        .grid-container{
+            display: grid;
+            grid-template-rows: 100%;
+            grid-template-columns: 190px auto 190px;
+        }
+    </style>
+
+    <h3>6. 使用calc()函数</h3>
+    <div class="calc-container clearfix">
+        <div id="left">#left</div>
+        <div id="main">#main</div>
+        <div id="right">#right</div>
+    </div>
+    <style>
+        .calc-container>div{
+            float: left;
+        }
+        .calc-container #main{
+            width: calc(100% - 380px);
+        }
+    </style>
+
+    <h3>7.绝对定位布局</h3>
+    <div id="absolute">
+        <div id="left" class="col">#left</div>
+        <div id="main" class="col">#main</div>
+        <div id="right" class="col">#right</div>
+    </div>
+    <style>
+        #absolute{
+            position: relative;
+            height: 400px;
+        }
+        #absolute .col{
+            position: absolute;
+        }
+        #absolute #left{
+            left: 0;
+        }
+        #absolute #main{
+            left: 190px;
+            right: 190px;
+        }
+        #absolute #right{
+            right: 0;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>格式化</title>
+</head>
+<body>
+	<h3>文本格式化</h3>
+	<div>
+		<b>bold粗体</b>
+		<br/>
+
+		<strong>strong用于强调文本</strong>
+		<br/>
+		
+		<big>big大字体</big>
+		<br/>
+		
+		<em>emphasized强调文本</em>
+		<br/>
+		
+		<i>italic斜体</i>
+		<br/>
+		
+		<small>small小字体</small>
+		<br/>
+		
+		This text contains
+		<sub>subscript</sub>
+		<br/>
+		
+		This text contains
+		<sup>superscript</sup>
+		<br/>
+
+		<p><del>删除线</del><ins>下划线</ins></p>
+		<br/>
+
+		<pre>
+			这是预格式文本。
+			它保留了    空格和
+			换行。
+		</pre>
+		<p>pre 标签很适合显示计算机代码：</p>
+		<pre>
+			for(i = 1 to 10)
+				print i
+			next i
+		</pre>
+	</div>
+
+	<h3>文字方向</h3>
+	<p>bi-directional override (bdo)</p>
+	<bdo dir="rtl">Here is some text（从右到左显示）</bdo>
+	<br/>
+	<bdo dir="otr">Here is some text（从左到右显示）</bdo>
+
+	<h3>缩略词</h3>
+	<!-- 标记一个缩写 -->
+	<abbr title="etcetera">etc.</abbr>
+	<br/>
+	<!-- 标记一个首字母缩写 -->
+	<!-- HTML5 中不支持 <acronym> 标签。请使用 <abbr> 标签代替 -->
+	<acronym title="World Wide Web">WWW</acronym>
+	<br/>
+	<p>在某些浏览器中，当您把鼠标移至缩略词语上时，title 可用于展示表达的完整版本。</p>
+
+	<p>仅对于 IE 5 中的 acronym 元素有效。</p>
+
+	<p>对于 Netscape 6.2 中的 abbr 和 acronym 元素都有效。</p>
+</body>
+</html>

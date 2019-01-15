@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            display: flex;
+        }
+        .col{
+            height: 100%;
+            display: inline-block;
+            width: 100px;
+            margin: 0 5px;
+        }
+        #main{
+            background-color: #ccc;
+        }
+        #top{
+            background-color: #0000FF;
+        }
+        #bottom{
+            background-color: #FF0000;
+        }
+        #top,#bottom{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 本文与《左右定宽中间自适应相对应》，此处只写不同之处，其它相同的请参照前文 -->
+    <div class="flex-container col">
+        <div id="top">#top</div>
+        <div id="main">
+            #main
+            <h3>flex布局</h3>
+        </div>
+        <div id="bottom">#bottom</div>
+    </div>
+    <style>
+        .flex-container{
+            display: flex;
+            flex-direction: column;
+        }
+        .flex-container #main{
+            flex: 1;
+        }
+    </style>
+
+    <div class="table-container col">
+        <div id="top">#top</div>
+        <div id="main">
+            #main
+            <h3>table布局</h3>
+        </div>
+        <div id="bottom">#bottom</div>
+    </div>
+    <style>
+        .table-container{
+            display: table;
+        }
+        .table-container>div{
+            display: table-row;
+        }
+    </style>
+
+    <div class="grid-container col">
+        <div id="top">#top</div>
+        <div id="main">
+            #main
+            <h3>grid布局</h3>
+        </div>
+        <div id="bottom">#bottom</div>
+    </div>
+    <style>
+        .grid-container{
+            display: grid;
+            grid-template-rows:100px auto 100px;
+            grid-template-columns:100%;
+        }
+    </style>
+
+    <div class="calc-container col">
+        <div id="top">#top</div>
+        <div id="main">
+            #main
+            <h3>calc布局</h3>
+        </div>
+        <div id="bottom">#bottom</div>
+    </div>
+    <style>
+        .calc-container #main{
+            height: calc(100% - 200px);
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <h3>元素不定高垂直居中(可实现多行文字垂直居中)</h3>
+    
+    <div class="box table-box">
+        <div class="content">
+            基于<b>“table-cell”</b>实现水平垂直居中
+            table-cell + vertical-align + margin:auto
+        </div>
+    </div>
+    <div class="box flex-box">
+        <div class="content">
+            基于<b>“flex布局”</b>实现水平垂直居中
+        </div>
+    </div>
+    <div class="box" style="height: auto;padding: 20px;box-sizing: border-box;">
+        <div style="background: yellow;">
+            基于<b>“包裹性”</b>实现水平垂直居中(等距的margin或padding)
+        </div>
+    </div>
+    <div class="box relative-box">
+        <div class="content">
+            基于<b>“相对定位”</b>实现水平垂直居中
+        </div>
+    </div>
+    <div class="box absolute-box">
+        <div class="content">
+            基于<b>“绝对定位”</b>实现水平垂直居中
+        </div>
+    </div>
+    
+    <style>
+        .box{
+            width: 300px;
+            height: 120px;
+            background: #f0f3f9;
+            margin: 20px 0;
+        }
+        .content{
+            width: 260px;
+            background: yellow;
+        }
+
+        .table-box{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .table-box .content{
+            margin: auto;
+        }
+
+        .flex-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .relative-box .content{
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* margin: -40px 0 0 -130px; */
+        }
+        
+        .absolute-box{
+            position: relative;
+        }
+        .absolute-box .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</body>
+</html>
