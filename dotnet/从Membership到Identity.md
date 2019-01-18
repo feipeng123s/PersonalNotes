@@ -97,7 +97,7 @@ ASPNetIdentity的模块如下图：
 
   ASP.NET Identity对OWIN 认证的支持。
 
-![](./img/ASPNetIdentity Framework.png)
+![](./img/ASPNetIdentity-Framework.png)
 
 参考文章：
 
