@@ -4,18 +4,18 @@
 
 使用VS2017创建一个MVC5项目（启用个人账号验证），VS会自动生成模板代码，在`AccountController.cs`中登录请求的方法如下图：
 
-![](./img/ASP.NET MVC5登录源码分析1.png)
+![](./img/identity-code1.png)
 该控制器方法中使用调用了`SignInManager.PasswordSignInAsync`方法兵返回一个是否登录成功的结果。该方法的命名空间为`Microsoft.AspNet.Identity.Owin`，查看[源码](https://github.com/aspnet/AspNetIdentity/blob/master/src/Microsoft.AspNet.Identity.Owin/SignInManager.cs)如下：
 
-![](./img/ASP.NET MVC5登录源码分析2.png)
+![](./img/identity-code2.png)
 
 
 
 在`PasswordSignInAsync`方法中验证用户名密码成功后，调用`SignInOrTwoFactor`方法：
 
-![](./img/ASP.NET MVC5登录源码分析3.png)
+![](./img/identity-code3.png)
 
-![](./img/ASP.NET MVC5登录源码分析4.png)
+![](./img/identity-code4.png)
 
 
 
@@ -119,7 +119,7 @@ ASP.NET web应用程序高度依赖于IIS服务器（如自定义http module注�
 
 在`AuthenticationResponseGrant`实例的set方法中会将Principal添加到到HttpContext中，生成票据，这样就完成了登录。生成的cookie票据如下
 
-![](D:/Code/PersonalNotes/dotnet/img/auth%20cookie.png)
+![](./img/auth%20cookie.png)
 
 
 
