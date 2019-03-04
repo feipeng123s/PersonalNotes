@@ -233,3 +233,84 @@ let store = createStore(todoApp) //createStore() 的第二个参数是可选的,
 
 
 
+## React Router
+
+### 用法
+
+- JSX写法
+
+    ```jsx
+    // router 允许你使用 IndexRoute ，以使 Home 作为最高层级的路由出现
+    import { Router, Route, Link, IndexRoute, Redirect } from 'react-router'
+    React.render((
+      <Router>
+        <Route path="/" component={App}>
+          <IndexRoute component={Dashboard} />
+          <Route path="about" component={About} />
+          <Route path="inbox" component={Inbox}>
+            <Route path="/messages/:id" component={Message} />
+    
+            {/* 跳转 /inbox/messages/:id 到 /messages/:id */}
+            <Redirect from="messages/:id" to="/messages/:id" />
+          </Route>
+        </Route>
+      </Router>
+    ), document.body)
+    ```
+
+- json对象形式写法
+
+  ```jsx
+  const routeConfig = [
+    { path: '/',
+      component: App,
+      indexRoute: { component: Dashboard },
+      childRoutes: [
+        { path: 'about', component: About },
+        { path: 'inbox',
+          component: Inbox,
+          childRoutes: [
+            { path: '/messages/:id', component: Message },
+            { path: 'messages/:id',
+              onEnter: function (nextState, replaceState) {
+                replaceState(null, '/messages/' + nextState.params.id)
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  
+  React.render(<Router routes={routeConfig} />, document.body)
+  ```
+
+  
+
+### 钩子函数
+
+- `routerWillLeave`
+
+- `onEnter`
+- `onLeave`
+
+> 这些hook会在页面跳转确认时触发一次。这些 hook 对于一些情况非常的有用，例如权限验证或者在路由跳转前将一些数据持久化保存起来。
+
+### 路由匹配
+
+> React Router 会**深度优先遍历**整个路由配置来寻找一个与给定的 URL 相匹配的路由。
+
+### 路由实现方式
+
+#### browserHistory
+
+需要服务器配置的支持
+
+#### hashHistory
+
+> Hash history 使用 URL 中的 hash（`#`）部分去创建形如 `example.com/#/some/path`的路由。
+
+#### createMemoryHistory
+
+> Memory history 不会在地址栏被操作或读取。这就解释了我们是如何实现服务器渲染的。同时它也非常适合测试和其他的渲染环境（像 React Native ）。
+
