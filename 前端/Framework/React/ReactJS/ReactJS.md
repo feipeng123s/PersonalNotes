@@ -16,6 +16,13 @@
 ## how use
 
 - cli方式[create-react-app](https://github.com/facebook/create-react-app)
+
+  ```bash
+  npx create-react-app my-app // npx comes with npm 5.2+ and higher
+  cd my-app
+  npm start
+  ```
+
 - 直接引入相关js文件`react.js`、`react-dom.js`、`babel.js`
 
 ## 核心概念

@@ -101,6 +101,8 @@ routes: [
 
 - 利用vue-router中的**scrollBehavior**（**这个功能只在支持 `history.pushState` 的浏览器中可用，第三个参数 `savedPosition` 当且仅当 `popstate`导航 (通过浏览器的 前进/后退 按钮触发，或者在地址栏输入url回车时触发) 时才可用。**）
 
+- 监听`popstate`事件
+
 #### scrollBehavior
 
 > scrollBehavior只在HTML5 history模式下可用？实验了hash模式下好像也是可以用的
@@ -172,3 +174,5 @@ scrollBehavior (to, from, savedPosition) {
 [内置组件——keep-alive](https://cn.vuejs.org/v2/api/#keep-alive)
 
 [**vue vue-router 完美实现前进刷新，后退不刷新**](https://www.imooc.com/article/47625?block_id=tuijian_wz)
+
+[移动端 H5 页面前进后退经验汇总](https://hooray.github.io/posts/20a4f60/)
