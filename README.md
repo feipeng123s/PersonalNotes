@@ -7,7 +7,7 @@
 
 #### 变量与数据类型
 
-- [JavaScript传参方式](./前端/JavaScript/JavaScript传参方式.md)
-- [JavaScript浅拷贝与深拷贝](./前端/JavaScript/JavaScript浅拷贝与深拷贝.md)
 - [JavaScript-类型检测](./前端/JavaScript/JavaScript-检测类型.md)
+- [JavaScript浅拷贝与深拷贝](./前端/JavaScript/JavaScript浅拷贝与深拷贝.md)
+- [JavaScript传参方式](./前端/JavaScript/JavaScript传参方式.md)
 
