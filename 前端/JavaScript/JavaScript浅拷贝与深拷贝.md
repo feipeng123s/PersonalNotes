@@ -114,61 +114,111 @@ JavaScript中数据类型分为基本数据类型（null、undefined、boolean�
   console.log(JSON.parse(str)); // {"a":1,"b":{"name":"b"}}
   ```
 
-- 手写递归方法：**遍历对象、数组直到里边都是基本数据类型，然后再去复制，就是深度拷贝**
+  - 循环引用问题
+
+    ```javascript
+      var a = {};
+      a.a = a;
+      
+      console.log(JSON.parse(JSON.stringify(a)));
+      // Uncaught TypeError: Converting circular structure to JSON
+      //    at JSON.stringify (<anonymous>)
+      
+      console.log(deepClone(a));  
+      // 如果下面的deepClone方法中没有加上针对循环引用的处理，就会报如下错误：
+      // Uncaught RangeError: Maximum call stack size exceeded
+    ```
+
+- 递归复制：jQuery.extend()，lodash函数库提供的cloneDeep方法等。
+
+  > 在递归复制中，对于除了Ojbect以外的基本数据类型以及Fucntion和Error类型，都会采用直接赋值的方式；而对于普通Object以及Array类型，会进行递归复制，直到遇到前面那些数据类型为止。
 
   ```javascript
-  //定义检测数据类型的功能函数
-  function checkedType(target) {
-      return Object.prototype.toString.call(target).slice(8, -1)
+  // jQuery实现原理
+  function checkType (target) {
+    let type = Object.prototype.toString.call(target).slice(8, -1);
+    return type.toLowerCase();
   }
-  //实现深度克隆---对象/数组
-  function deepClone(target) {
-      //判断拷贝的数据类型
-      //初始化变量result 成为最终克隆的数据
-      let result, targetType = checkedType(target)
-      if (targetType === 'Object') {
-          result = {}
-      } else if (targetType === 'Array') {
-          result = []
-      } else {
-          return target
-      }
-      //遍历目标数据
-      for (let i in target) {
-          //获取遍历数据结构的每一项值。
-          let value = target[i]
-          //判断目标结构里的每一值是否存在对象/数组
-          if (checkedType(value) === 'Object' ||
-              checkedType(value) === 'Array') { //对象/数组里嵌套了对象/数组
-              //继续遍历获取到value值
-              result[i] = clone(value)
-          } else { //获取到value值是基本的数据类型或者是函数。
-              result[i] = value;
+  
+  function isPlainObject (obj) {
+    if (!obj && checkType(obj) !== 'object') {
+      return false;
+    }
+  
+    let proto = Object.getPrototypeOf(obj);
+    // Object.create(null)的情况
+    if (!proto) {
+      return true;
+    }
+  
+    // 具有原型的对象是普通的，如果它们是由全局Object函数构造的
+    let instance = {};
+    let hasOwn = instance.hasOwnProperty;
+    let fnToString = hasOwn.toString;
+    // 获得obj的原型上的构造函数
+    let Ctor = hasOwn.call(proto,'constructor') && proto.constructor;
+  
+    // 判断构造函数是否为Object()
+    return typeof Ctor === 'function' 
+      && fnToString.call(Ctor) === fnToString.call(Object);
+  }
+  
+  function deepClone() {
+    let target = arguments[0] || {};
+    let i = 1;
+    let length = arguments.length;
+  
+    if (typeof target !== 'object' && checkType(target) !== 'function') {
+      target = {};
+    }
+  
+    // 处理只有一个参数的情况
+    if (i === length) {
+      target = {};
+      i--;
+    }
+    for (; i < length; i++) {
+      let options = arguments[i];
+      if (options !== null) {
+        for (let key in options) {
+          let src = target[key];
+          let copy = options[key];
+  
+          // 防止循环引用问题（下面有提到）
+          if (target === copy) {
+            continue;
           }
+  
+          let copyIsArray = false;
+          if (copy && (isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) { // 当为普通对象或数组时，进行递归复制
+            let clone;
+  
+            if (copyIsArray) {
+              clone = src && Array.isArray(src) ? src : [];
+            } else {
+              clone = src && isPlainObject(src) ? src : {};
+            }
+            // 递归
+            target[key] = deepClone(clone, copy);
+          } else if (copy !== undefined) { //当为基本类型，function以及new Date()等值时直接赋值
+            target[key] = copy;
+          }
+        }
       }
-      return result
+    }
+  
+    return target;
   }
   ```
 
-- 对于上面两种法案，都无法解决循环引用的问题，解决方案请看第二篇参考文章
+- 循环引用问题
 
-  ```javascript
-  var a = {};
-  a.a = a;
-  
-  console.log(JSON.parse(JSON.stringify(a)));
-  // Uncaught TypeError: Converting circular structure to JSON
-  //    at JSON.stringify (<anonymous>)
-  
-  console.log(deepClone(a));  
-  // Uncaught RangeError: Maximum call stack size exceeded
-  ```
+  对于`a.a = a`的情况，我们好像在deepClone方法中解决了，但是`a.b.c = a`的情况呢，通过验证还是会报错。更详细的解决方案见参考文章第二篇。
 
-- lodash函数库提供的cloneDeep方法
 
 ## 问题原理解释
 
-疑惑的原因是改变obj.b的值得方式漏掉了一种情况，修改obj.b的方式不是直接给b赋一个新值，而是更改b指向对象。
+疑惑的原因是改变obj.b的值的方式漏掉了一种情况，修改obj.b的方式不是直接给b赋一个新值，而是更改b指向对象。
 
 ```javascript
 var obj = {
@@ -195,6 +245,8 @@ console.log(JSON.stringify(c)); // {"a":3,"b":{"name":"bbb"}}
 
 参考文章：
 
-[浅拷贝与深拷贝](https://github.com/ljianshu/Blog/issues/5)
+1. [浅拷贝与深拷贝](https://github.com/ljianshu/Blog/issues/5)
 
-[JavaScript深拷贝的一些坑](https://juejin.im/post/5b235b726fb9a00e8a3e4e88)
+2. [JavaScript深拷贝的一些坑](https://juejin.im/post/5b235b726fb9a00e8a3e4e88)
+
+3. jQuery.extend()方法源码实现

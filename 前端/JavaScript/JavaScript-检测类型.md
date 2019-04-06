@@ -75,7 +75,7 @@
    Object.prototype.toString.call(obj).slice(8,-1)
    ```
 
-   
+5. 指定类型检测`Array.isArray()`，专门用来检测数组
 
 参考：
 1. 《JavaScript高级程序设计》第3版 4.4.4节 检测类型
