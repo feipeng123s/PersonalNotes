@@ -6,6 +6,7 @@
 - [函数防抖与函数节流](./前端/JavaScript/函数防抖与函数节流.md)
 - [高阶函数、闭包、偏函数、坷里化概念](./前端/JavaScript/高阶函数、闭包、偏函数、坷里化概念.md)
 - [闭包的应用](./前端/JavaScript/闭包.md)
+- [JavaScript-OOP之封装&继承&多态](.//前端/JavaScript/JavaScript-OOP之封装&继承&多态.md)
 
 #### 变量与数据类型
 
@@ -17,7 +18,7 @@
 
 - [ngrok1.7实现内网穿透踩坑](./前端/其它/ngrok1.7实现内网穿透踩坑.md)
 - [微信公众号网页开发笔记](./前端/其它/微信公众号网页开发手记.md)
-- [WebComponent学习笔记](./前端/HTML/Web Component学习笔记.md)
+- [WebComponent学习笔记](./前端/HTML/Web%20Component学习笔记.md)
 
 
 

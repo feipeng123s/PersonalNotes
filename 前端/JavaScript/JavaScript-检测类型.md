@@ -37,7 +37,7 @@
    obj.constructor = Array;
    obj instanceof Array;
    ```
-   **存在的问题：**根据规定，所有引用类型的值都是Object的实例。因此，在检测一个引用类型值和Object构造函数时，instanceof操作符总会返回true。通过原型链来检测也会有相似的问题。
+   **存在的问题：**根据规定，所有引用类型的值都是Object的实例，而`isPrototypeOf`和`instanceof`都会检查整个原型链。因此，在检测一个引用类型值和Object构造函数时，instanceof操作符总会返回true。通过原型链来检测也会有相似的问题。
 
 4. Object.prototype.toString.call(obj)
 
