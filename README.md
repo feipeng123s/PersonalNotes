@@ -6,7 +6,9 @@
 - [函数防抖与函数节流](./前端/JavaScript/函数防抖与函数节流.md)
 - [高阶函数、闭包、偏函数、坷里化概念](./前端/JavaScript/高阶函数、闭包、偏函数、坷里化概念.md)
 - [闭包的应用](./前端/JavaScript/闭包.md)
-- [JavaScript-OOP之封装&继承&多态](.//前端/JavaScript/JavaScript-OOP之封装&继承&多态.md)
+- [JavaScript OOP(1)ES5中的属性](./前端/JavaScript/JavaScript%20OOP(1)ES5中的属性.md)
+- [JavaScript OOP(2)封装(创建对象)](./前端/JavaScript/JavaScript%20OOP(2)封装(创建对象).md)
+- [JavaScript OOP(3)继承](./前端/JavaScript/JavaScript%20OOP(3)继承.md)
 
 #### 变量与数据类型
 
