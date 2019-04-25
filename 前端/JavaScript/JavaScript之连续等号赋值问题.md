@@ -18,28 +18,29 @@ console.log(bar);
 
 #### Ecma-262对于等号赋值表达式的规定
 
-![Ecma-262对于等号赋值表达式的规定](D:\Code\PersonalNotes\前端\JavaScript\img\AssignmentExpression.png)
+![Ecma-262对于等号赋值表达式的规定](./img/AssignmentExpression.png)
 
 > 翻译：
 >
 > 1. 如果左边的表达式既不是Object字面量也不是Array字面量，然后
 >
->    a. 让lref(左边的引用)指向左边表达式的计算结果
+>       a. 让`lref`(左边的引用)指向左边表达式的计算结果
 >
->    b. 返回左边表达式的值
+>       b. 返回左边表达式的值
 >
->    c. 让rref(右边的引用)指向右边表达式的计算结果
+>       c. 让`rref`(右边的引用)指向右边表达式的计算结果
 >
->    d. 让rval等于rref指向的值
+>       d. 让`rval`等于`rref`指向的值
 >
->    e. 若右边的表达式为匿名函数定义，且左边的表达式是一个引用类型标识符，然后
+>       e. 若右边的表达式为匿名函数定义，且左边的表达式是一个引用类型标识符，然后
 >
->     	1. 让`hasNameProperty= HasOwnProperty(rval, "name") `
->    		2. 若hasNameProperty值为false（即匿名函数还未指定名称），将匿名函数的函数名指定为lref
+>       ​	1. 让`hasNameProperty= HasOwnProperty(rval, "name") `
 >
->    f. 将右边的值rval赋值给lref
+>       ​	2. 若`hasNameProperty`值为false（即匿名函数还未指定名称），将匿名函数的函数名指定为`lref`
 >
->    g. 返回rval
+>       f. 将右边的值`rval`赋值给`lref`
+>
+>       g. 返回`rval`
 >
 > 2. 否则，就是AssignmentPattern（赋值模式，包括ObjectAssignmentPattern 和 ArrayAssignmentPattern），也就是对应我们的解构（**Destructuring**）语法。
 
