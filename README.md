@@ -5,7 +5,7 @@
 - [JavaScprit之this指向](./前端/JavaScript/JavaScript之this指向.md)
 - [JavaScript之连续等号赋值问题](./前端/JavaScript/JavaScript之连续等号赋值问题.md)
 - [JavaScript之事件](./前端/JavaScript/JavaScript之事件.md)
-
+- [slice、splice、split函数的用法](./前端/JavaScript/img/slice、splice、split.jpg)
 - [函数防抖与函数节流](./前端/JavaScript/函数防抖与函数节流.md)
 - [高阶函数、闭包、偏函数、坷里化概念](./前端/JavaScript/高阶函数、闭包、偏函数、坷里化概念.md)
 - [闭包的应用](./前端/JavaScript/闭包.md)
@@ -20,8 +20,6 @@
 - [JavaScript传参方式](./前端/JavaScript/JavaScript传参方式.md)
 
 #### ES5
-
-![](./前端/JavaScript/img/ES5.png)
 
 - 严格模式(use strict)
 
