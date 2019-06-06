@@ -36,7 +36,6 @@ Compile.prototype = {
         Array.prototype.slice.call(childNodes).forEach(node => {
             let reg = /\{\{(.*)\}\}/;
             let text = node.textContent;
-            console.log(text,reg.exec(text));
             
             if (self.isElementNode(node)) { // 编译元素节点中的指令
                 self.compileElement(node);

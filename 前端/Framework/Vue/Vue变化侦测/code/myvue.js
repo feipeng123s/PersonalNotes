@@ -1,6 +1,6 @@
 function MyVue (options) {
     this.$options = options;
-    this.$data = options.data;
+    this.$data = options.data();
     this.$el = options.el;
     let vm = this;
     
@@ -11,7 +11,8 @@ function MyVue (options) {
     this.init();
 }
 MyVue.prototype.init = function () {
-    observer(this.$data);
+    // observer(this.$data);
+    new Observer(this.$data);
     new Compile(this, this.$el);
 }
 

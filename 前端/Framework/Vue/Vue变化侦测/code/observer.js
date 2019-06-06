@@ -1,26 +1,37 @@
-function observer (data) {
+function Observer (data) {
+    this.data = data;
+    this.dep = new Dep ();
+    this.walk(data);
+}
+
+Observer.prototype.walk = function (obj) {
+    let keys = Object.keys(obj)
+    keys.forEach(key => {
+        defineReactive(obj, key)
+    })
+}
+
+function defineReactive (data, key) {
     // 初始化发布者
     let dep = new Dep();
-    Object.keys(data).forEach(key => {
-        let val = data[key];
-        Object.defineProperty(data, key, {
-            enumerable: true,
-            configurable: true,
-            get: function getter() {
-                // 添加订阅者
-                if (Dep.target) {
-                    dep.addSub(Dep.target);
-                }
-                
-                return val;
-            },
-            set: function setter(newVal) {
-                if (newVal === val) return;
-                val = newVal;
-                // 通知订阅者
-                dep.notify();
+    let val = data[key];
+    Object.defineProperty(data, key, {
+        enumerable: true,
+        configurable: true,
+        get: function getter() {
+            // 添加订阅者
+            if (Dep.target) {
+                dep.addSub(Dep.target);
             }
-        })
+            
+            return val;
+        },
+        set: function setter(newVal) {
+            if (newVal === val) return;
+            val = newVal;
+            // 通知订阅者
+            dep.notify();
+        }
     })
 }
 

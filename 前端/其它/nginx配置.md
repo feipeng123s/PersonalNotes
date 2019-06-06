@@ -23,5 +23,15 @@
 
 
 
-  
+  ## 配置gzip压缩
+
+```bash
+gzip  on;
+gzip_http_version       1.1;        
+gzip_comp_level         5;
+gzip_min_length         1000;
+gzip_types text/csv text/xml text/css text/plain text/javascript application/javascript application/x-javascript application/json application/xml;
+```
+
+参考： [前端开发者必备的nginx知识](<https://zhuanlan.zhihu.com/p/65393365>)
 
