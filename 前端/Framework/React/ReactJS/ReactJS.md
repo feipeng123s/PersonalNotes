@@ -192,6 +192,10 @@ ReactDOM.render(
 
 > **Action** 是把数据从应用传到 store 的有效载荷。它是 store 数据的**唯一**来源。一般来说你会通过 [`store.dispatch()`](https://cn.redux.js.org/docs/api/Store.html#dispatch) 将 action 传到 store。
 
+#### Action创建函数
+
+> **Action 创建函数** 就是生成 action 的方法。
+
 ### Reducer
 
 > **Reducers** 指定了应用状态的变化如何响应actions并发送到 store 的。reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state。
@@ -204,17 +208,34 @@ ReactDOM.render(
 
 #### Reducer合成
 
-...
+> 它是开发 Redux 应用最基础的模式。
+
+-  `combineReducers()`
 
 ### Store
 
 Store就是将Action和Reducer联系到一起的对象，Store有一下职责：
 
 - 维持应用的 state；
+
 - 提供 [`getState()`](https://cn.redux.js.org/docs/api/Store.html#getState) 方法获取 state；
+
 - 提供 [`dispatch(action)`](https://cn.redux.js.org/docs/api/Store.html#dispatch) 方法更新 state；
+
 - 通过 [`subscribe(listener)`](https://cn.redux.js.org/docs/api/Store.html#subscribe) 注册监听器;
-- 通过 [`subscribe(listener)`](https://cn.redux.js.org/docs/api/Store.html#subscribe) 返回的函数注销监听器。
+
+- 通过 [`subscribe(listener)`](https://cn.redux.js.org/docs/api/Store.html#subscribe) 返回一个函数用来注销监听器。
+
+  ```javascript
+  const unsubscribe = store.subscribe(() =>
+    console.log(store.getState())
+  )
+  
+  // 注销监听器
+  unsubscribe();
+  ```
+
+  
 
 #### 根据Reducer来创建Store
 
@@ -230,6 +251,14 @@ let store = createStore(todoApp) //createStore() 的第二个参数是可选的,
 2. Redux store 调用传入的 reducer 函数
 3. 根 reducer 应该把多个子 reducer 输出合并成一个单一的 state 树
 4. Redux store 保存了根 reducer 返回的完整 state 树
+
+### 异步Action
+
+### Middleware
+
+### 搭配React Router
+
+
 
 
 
@@ -258,7 +287,7 @@ let store = createStore(todoApp) //createStore() 的第二个参数是可选的,
     ), document.body)
     ```
 
-- json对象形式写法
+- 数组对象形式写法
 
   ```jsx
   const routeConfig = [
