@@ -11,6 +11,18 @@
 ### pre
 
 > 保留原有空格，不会自动换行，换行符（回车）起作用
+>
+> **注意：**当设置某个元素`white-space:pre`时（包括pre-wrap和pre-line），其最好不要包含子元素，否则，如果子元素和当前元素之间包含空格时，子元素位置会出现偏移。如下：
+
+```html
+<div style="white-space:pre;">
+    <div>
+        abc
+    </div>
+</div>
+```
+
+
 
 ### pre-wrap
 
