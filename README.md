@@ -27,7 +27,7 @@
 
 #### DOM
 
-- [DOM之获取高度](./前端/JavaScript/DOM之获取高度.png)
+- [DOM之获取宽高](./前端/DOM/DOM之获取宽高.md)
 
 #### BOM
 
